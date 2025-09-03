@@ -20,8 +20,29 @@ function init() {
 function getAllFestivalImages() {
     let html = "";
     for (let i = 0; i < festivalImages.length; i++) {
-      html += `<img src="${festivalImages[i]}" alt="">`;
+      html += `<div <button  onclick="openDialog()"></button>"><img src="${festivalImages[i]}" alt=""></div>`;
     }
     document.getElementById("content").innerHTML = html;
   }
   
+
+
+  // Dialog
+
+  const dialogRef = document.getElementById('dialog');
+
+  function openDialog() {
+    dialogRef.showModal();
+    dialogRef.classList.add('opened')
+  }
+  
+  function closeDialog(){
+      dialogRef.close()
+      dialogRef.classList.remove('opened')
+  }
+  
+  function toggleOverlay(){
+    let overlayRef = document.getElementById('overlay')
+
+    overlayRef.classList.toggle('d_none')
+  }

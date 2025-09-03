@@ -3,7 +3,13 @@
     flex-wrap: wrap;
 }
 
-.window>img {
-    height: 120px;
-    width: 120px;
+div{
+    display: flex;
+    align-items: center;
+    
+}
+
+div >img{
+    height: auto;
+    width: 240px;
 }
