@@ -11,7 +11,7 @@ let festivalImages = [
   "assets/image/Southside.jpg",
 ];
 
-let festivalImageDesc =[
+let festivalImageDesc = [
   "Die treuen Gefolgen vom BEERPAPST",
   "Das Abbild eines Adones mit dem passenden Schnurbart..und ein komischer Kerl links",
   "NatuschutzGebiet",
@@ -21,14 +21,12 @@ let festivalImageDesc =[
   "Jenga Festival Edition",
   "Riesenrad, ich war da oben",
   "R.I.P. Rocco del Schlacko",
-  "schönes Bild, hat geklappt"
-
-]
+  "schönes Bild, hat geklappt",
+];
 let festivalImage = "";
 let dialogRef = "";
 let dialogImgRef = "";
 let currentIndex = 0;
-
 
 function init() {
   // Bilder anzeigen
@@ -55,17 +53,8 @@ function getAllFestivalImages() {
 // Dialog
 
 function openDialog(i) {
-  const path = festivalImages[currentIndex];
-  const festivalImageTitle = path.split("/").pop().split(".")[0]; // was passiert hier?
-  // path.split("/") → teilt den Pfad an jedem / in Teile, z. B. ["assets","image","beerPapst.jpg"].
-  // .pop() → nimmt das letzte Element: "beerPapst.jpg".
-  // .split(".") → teilt den Dateinamen an Punkten: ["beerPapst","jpg"].
-  // [0] → nimmt den Teil vor der Endung: "beerPapst".
-
-  document.getElementById('dialogTitle').textContent = festivalImageTitle;
-  document.getElementById('description').textContent = festivalImageDesc[currentIndex];
-  
-  dialogImgRef.src = path;
+  currentIndex = i;           
+  updateDialogImage();           
   dialogRef.showModal();
   dialogRef.classList.add("opened");
 }
@@ -75,24 +64,24 @@ function closeDialog() {
   dialogRef.classList.remove("opened");
 }
 
-// vorwärts (zyklisch)
 function goForward() {
-  currentIndex = (currentIndex + 1) % festivalImages.length;
-  updateDialogImage();
+  currentIndex++;
+  if (currentIndex >= festivalImages.length) currentIndex = 0;
+  updateDialogImage();     
 }
 
-// zurück (zyklisch)
 function goBack() {
-  currentIndex = (currentIndex - 1 + festivalImages.length) % festivalImages.length;
-  updateDialogImage();
+  currentIndex--;
+  if (currentIndex < 0) currentIndex = festivalImages.length - 1;
+  updateDialogImage();           
 }
 
 
 function updateDialogImage() {
-  const path = festivalImages[currentIndex];
+  const path  = festivalImages[currentIndex];
   const title = path.split("/").pop().split(".")[0];
-
   dialogImgRef.src = path;
-  document.getElementById('dialogTitle').textContent = title;
-  document.getElementById('description').textContent = festivalImageDesc[currentIndex];
+  document.getElementById("dialogTitle").textContent = title;
+  document.getElementById("description").textContent = festivalImageDesc[currentIndex];
 }
+
