@@ -20,12 +20,24 @@ function init() {
 function getAllFestivalImages() {
     let festivalImage = "";
     for (let i = 0; i < festivalImages.length; i++) {
-      festivalImage += `<div 
-      "><img src="${festivalImages[i]}" alt="">
+      festivalImage += `<div onclick="openDialog()"
+      ><img src="${festivalImages[i]}" alt="">
       </div>`;
     }
     document.getElementById("content").innerHTML = festivalImage;
   }
   
+// Dialog 
 
+  const dialogRef = document.getElementById('dialog1');
 
+  function openDialog() {
+    dialogRef.showModal();
+    dialogRef.classList.add('opened')
+  }
+  
+  function closeDialog(){
+      dialogRef.close()
+      dialogRef.classList.remove('opened')
+  }
+  
