@@ -43,7 +43,7 @@ function getAllFestivalImages() {
   let festivalImage = "";
   for (let i = 0; i < festivalImages.length; i++) {
     festivalImage += `
-    <div onclick="openDialog(${i})">
+    <div class="image-box" onclick="openDialog(${i})">
       <img src="${festivalImages[i]}" alt="">
     </div>`;
   }

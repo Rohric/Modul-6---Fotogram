@@ -1,38 +1,71 @@
-.window {
+/* Global */
+
+*{
+    background-color: blueviolet;
+}
+
+/* Header */
+.header_gallery {
     display: flex;
+    align-items: center;
+}
+
+/* Logo */
+.header_logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+/* Titel */
+.header_gallery h1 {
+    margin: 0;
+}
+
+
+
+/* Gallery styling */
+.gallery {
+    display: flex;
+    /* Bilder nebeneinander */
     flex-wrap: wrap;
+    gap: 16px;
+    /* Abstand zwischen den Bildern */
 }
 
-div {
-    display: flex;
-    align-items: center;
+/* Styling der Boxen, die die Bilder beinhalten */
+.image-box {
     width: 200px;
     height: 200px;
+    overflow: hidden;
+    /* alles, was übersteht, wird abgeschnitten */
+    border: 2px solid #000;
+    /* Rahmen */
+    border-radius: 8px;
+}
+
+/* Syling der Bilder innerhalb der Box */
+.image-box img {
+    width: 100%;
+    /* Bild füllt die Box */
+    height: 100%;
     object-fit: cover;
+    /* schneidet zu, ohne zu verzerren */
     object-position: center;
-    margin: 16px;
+    transition: transform 0.2s;
+    /* Animation beim Hover */
 }
 
-div>img {
-    height: 200px;
-    width: 200px;
-}
-
-div:hover {
-    display: flex;
-    align-items: center;
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    object-position: center;
-    margin: 8px;
+.image-box img:hover {
+    transform: scale(1.5);
+    /* zoomt weich rein */
+    cursor: pointer;
 }
 
 
+/* css vom Dialog */
 
-.dialog_1 {
-    img {
-        height: auto;
-        width: 400px;
-    }
+.dialog_1 img {
+    width: 400px;
+    height: auto;
 }
