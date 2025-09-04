@@ -41,10 +41,10 @@ function init() {
 
 function getAllFestivalImages() {
   let festivalImage = "";
-  for (let i = 0; i < festivalImages.length; i++) {
+  for (let currentfestivalImage = 0; currentfestivalImage < festivalImages.length; currentfestivalImage++) {
     festivalImage += `
-    <div onclick="openDialog(${i})">
-      <img src="${festivalImages[i]}" alt="">
+    <div onclick="openDialog(${currentfestivalImage})">
+      <img src="${festivalImages[currentfestivalImage]}" alt="">
     </div>`;
   }
   document.getElementById("content").innerHTML = festivalImage;
@@ -53,15 +53,15 @@ function getAllFestivalImages() {
 // Dialog
 
 function openDialog(i) {
-  const path = festivalImages[i];
-  const filename = path.split("/").pop().split(".")[0]; // was passiert hier?
+  currentfestivalImage = festivalImages[currentfestivalImage];
+  const filename = currentfestivalImage.split("/").pop().split(".")[0]; // was passiert hier?
   // path.split("/") → teilt den Pfad an jedem / in Teile, z. B. ["assets","image","beerPapst.jpg"].
   // .pop() → nimmt das letzte Element: "beerPapst.jpg".
   // .split(".") → teilt den Dateinamen an Punkten: ["beerPapst","jpg"].
   // [0] → nimmt den Teil vor der Endung: "beerPapst".
 
   document.getElementById('dialogTitle').textContent = filename;
-  document.getElementById('description').textContent = festivalImageDesc[i];
+  document.getElementById('description').textContent = festivalImageDesc[currentfestivalImage];
   
   dialogImgRef.src = path;
   dialogRef.showModal();
