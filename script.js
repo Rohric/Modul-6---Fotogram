@@ -18,7 +18,7 @@ let festivalImageDesc =[
   "V.I.P",
   "NinaChuba <3",
   "Festival Aufsicht",
-  "Jenga Festival_Edition",
+  "Jenga Festival Edition",
   "Riesenrad, ich war da oben",
   "R.I.P. Rocco del Schlacko",
   "schönes Bild, hat geklappt"
@@ -27,6 +27,8 @@ let festivalImageDesc =[
 let festivalImage = "";
 let dialogRef = "";
 let dialogImgRef = "";
+let currentIndex = 0;
+
 
 function init() {
   // Bilder anzeigen
@@ -53,7 +55,7 @@ function getAllFestivalImages() {
 // Dialog
 
 function openDialog(i) {
-  const path = festivalImages[i];
+  const path = festivalImages[currentIndex];
   const festivalImageTitle = path.split("/").pop().split(".")[0]; // was passiert hier?
   // path.split("/") → teilt den Pfad an jedem / in Teile, z. B. ["assets","image","beerPapst.jpg"].
   // .pop() → nimmt das letzte Element: "beerPapst.jpg".
@@ -61,7 +63,7 @@ function openDialog(i) {
   // [0] → nimmt den Teil vor der Endung: "beerPapst".
 
   document.getElementById('dialogTitle').textContent = festivalImageTitle;
-  document.getElementById('description').textContent = festivalImageDesc[i];
+  document.getElementById('description').textContent = festivalImageDesc[currentIndex];
   
   dialogImgRef.src = path;
   dialogRef.showModal();
@@ -73,9 +75,24 @@ function closeDialog() {
   dialogRef.classList.remove("opened");
 }
 
-function goForward(){
-
+// vorwärts (zyklisch)
+function goForward() {
+  currentIndex = (currentIndex + 1) % festivalImages.length;
+  updateDialogImage();
 }
-function goForward(){
 
+// zurück (zyklisch)
+function goBack() {
+  currentIndex = (currentIndex - 1 + festivalImages.length) % festivalImages.length;
+  updateDialogImage();
+}
+
+
+function updateDialogImage() {
+  const path = festivalImages[currentIndex];
+  const title = path.split("/").pop().split(".")[0];
+
+  dialogImgRef.src = path;
+  document.getElementById('dialogTitle').textContent = title;
+  document.getElementById('description').textContent = festivalImageDesc[currentIndex];
 }
