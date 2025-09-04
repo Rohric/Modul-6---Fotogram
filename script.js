@@ -73,12 +73,9 @@ function closeDialog() {
   dialogRef.classList.remove("opened");
 }
 
-function goForward() {
-  currentIndex = (currentIndex + 1) % festivalImages.length;
-  updateDialogImage();
-}
+function goForward(){
 
-function goBack() {
-  currentIndex = (currentIndex - 1 + festivalImages.length) % festivalImages.length;
-  updateDialogImage();
+}
+function goForward(){
+
 }
