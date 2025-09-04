@@ -18,31 +18,14 @@ function init() {
 // Templates..dienen dazu den inhalt aus dem Array anzuzeigen
 
 function getAllFestivalImages() {
-    let html = "";
+    let festivalImage = "";
     for (let i = 0; i < festivalImages.length; i++) {
-      html += `<div <button  onclick="openDialog()"></button>"><img src="${festivalImages[i]}" alt=""></div>`;
+      festivalImage += `<div 
+      "><img src="${festivalImages[i]}" alt="">
+      </div>`;
     }
-    document.getElementById("content").innerHTML = html;
+    document.getElementById("content").innerHTML = festivalImage;
   }
   
 
 
-  // Dialog
-
-  const dialogRef = document.getElementById('dialog');
-
-  function openDialog() {
-    dialogRef.showModal();
-    dialogRef.classList.add('opened')
-  }
-  
-  function closeDialog(){
-      dialogRef.close()
-      dialogRef.classList.remove('opened')
-  }
-  
-  function toggleOverlay(){
-    let overlayRef = document.getElementById('overlay')
-
-    overlayRef.classList.toggle('d_none')
-  }
