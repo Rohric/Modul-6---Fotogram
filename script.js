@@ -10,6 +10,20 @@ let festivalImages = [
   "assets/image/RIP.jpg",
   "assets/image/Southside.jpg",
 ];
+
+let festivalImageDesc =[
+  "Die treuen Gefolgen vom BEERPAPST",
+  "Das Abbild eines Adones mit dem passenden Schnurbart..und ein komischer Kerl links",
+  "NatuschutzGebiet",
+  "V.I.P",
+  "NinaChuba <3",
+  "Festival Aufsicht",
+  "Jenga Festival_Edition",
+  "Riesenrad, ich war da oben",
+  "R.I.P. Rocco del Schlacko",
+  "schönes Bild, hat geklappt"
+
+]
 let festivalImage = "";
 let dialogRef = "";
 let dialogImgRef = "";
@@ -38,27 +52,21 @@ function getAllFestivalImages() {
 
 // Dialog
 
-// function openDialog(i) {
-//   document.getElementById('dialogTitle').textContent = ($[i])
-
-//   dialogImgRef.src = festivalImages[i]; // Bildquelle übertragen 
-//   dialogRef.showModal();
-//   dialogRef.classList.add("opened");
-// }
-
-// KI GENERIERT amfang 
 function openDialog(i) {
   const path = festivalImages[i];
-  const filename = path.split("/").pop().split(".")[0]; // "beerPapst" // ki generiert verstehe noch nicht wieso 
-
+  const filename = path.split("/").pop().split(".")[0]; // was passiert hier?
+  // path.split("/") → teilt den Pfad an jedem / in Teile, z. B. ["assets","image","beerPapst.jpg"].
+  // .pop() → nimmt das letzte Element: "beerPapst.jpg".
+  // .split(".") → teilt den Dateinamen an Punkten: ["beerPapst","jpg"].
+  // [0] → nimmt den Teil vor der Endung: "beerPapst".
 
   document.getElementById('dialogTitle').textContent = filename;
+  document.getElementById('description').textContent = festivalImageDesc[i];
+  
   dialogImgRef.src = path;
   dialogRef.showModal();
   dialogRef.classList.add("opened");
 }
-
-//KI Generiert ende
 
 function closeDialog() {
   dialogRef.close();
@@ -66,8 +74,11 @@ function closeDialog() {
 }
 
 function goForward() {
-
-  
+  currentIndex = (currentIndex + 1) % festivalImages.length;
+  updateDialogImage();
 }
 
-function goBack() {}
+function goBack() {
+  currentIndex = (currentIndex - 1 + festivalImages.length) % festivalImages.length;
+  updateDialogImage();
+}
