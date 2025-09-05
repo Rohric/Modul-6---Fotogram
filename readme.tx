@@ -1,0 +1,27 @@
+Hier befindne sich die Farben die ich für das Projekt verwendne möchte.
+
+#🎨 Farbpalette für Fotogram
+
+* Hintergrund hell: `#ECD2F6`
+  → Für Flächen, Cards und helle Sektionen.
+
+* Primär-Akzent: `#B17FE3`
+  → Für Buttons, Links und aktive Rahmen.
+
+* Text dunkel: `#281C4D`
+  → Für Überschriften und Standardtext auf hellen Flächen.
+
+* Highlight hell: `#00F3FF`
+  → Für Hover-Effekte und Fokusmarkierungen.
+
+* Highlight dunkel: `#00CAFF`
+  → Für aktive States, kleine Icons oder Details.
+
+* Kontrast Akzent 1: `#8D0064`
+  → Für Warnungen, Badges oder Akzente mit hoher Aufmerksamkeit.
+
+* Kontrast Akzent 2: `#D10078`
+  → Für starke Call-to-Action Buttons, Herz-/Like-Symbole.
+
+* Dunkler Hintergrund: `#000E79`
+  → Für Footer, Header oder dunkle Sektionen.

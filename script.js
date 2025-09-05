@@ -23,6 +23,7 @@ let festivalImageDesc = [
   "R.I.P. Rocco del Schlacko",
   "schönes Bild, hat geklappt",
 ];
+
 let festivalImage = "";
 let dialogRef = "";
 let dialogImgRef = "";
@@ -38,7 +39,7 @@ function init() {
 }
 
 // Templates..dienen dazu den inhalt aus dem Array anzuzeigen
-// Gallery ansicht
+// Template: Gallery ansicht
 function getAllFestivalImages() {
   let festivalImage = "";
   for (let i = 0; i < festivalImages.length; i++) {
@@ -49,38 +50,48 @@ function getAllFestivalImages() {
   }
   document.getElementById("content").innerHTML = festivalImage;
 }
-// Dialog Ansicht
+// Template: Dialog Ansicht
 function contentDialogImage() {
+  // erstelle die Variable "PFAD" dient dazu den "currentIndex" zu definieren und um auf ihn zuzugreifen, wie in titel oder bild generierung. 
   const path = festivalImages[currentIndex];
+// Zieht sich den aktuellen Titel
   const title = path.split("/").pop().split(".")[0];
-
+// Zieht sich das aktuelle Bild
   dialogImgRef.src = path;
+
+  // Dialolg Titel wird gerendert.
   document.getElementById("dialogTitle").textContent = title;
+  // Dialog Beschreibung wird gerendert.
   document.getElementById("description").textContent =
     festivalImageDesc[currentIndex];
+    //DIalog Bild von Anzahl wird gerendert.
   document.getElementById("dialogImageNumber").innerHTML =
     currentIndex + 1 + "von" + festivalImages.length; // mit innerHTML verändern wir den HTML Bereich, (currentIndex + 1 +) zieht sich den aktuellen index und rechnet plus 1 wegen der 0 (+ festivalImages.length) gibt die anzahl der gesamten arrays wieder. durch das(von) in der Mitte wird die Rechnung unterbrochen.
 }
 
 // Dialog
-
-function openDialog() {
+// öffnet den Dialog
+// das "i" in openDialog kommt vom index oben, von der for schleife zur generierung der Bilder! Also können wir so bestimmen auf welchem Bild wir uns befinden.
+function openDialog(i) {
+  // der currentIndex wird auf das ausgewählte image gesetzt
+  currentIndex = i;
   contentDialogImage();
+  // showModal öffnet das dialog fenster.
   dialogRef.showModal();
   dialogRef.classList.add("opened");
 }
-
+// schließt den Dialog, momentan nur auf Button
 function closeDialog() {
   dialogRef.close();
   dialogRef.classList.remove("opened");
 }
-
+// nächstes Bild, arbeitet über current Index
 function goForward() {
   currentIndex++;
   if (currentIndex >= festivalImages.length) currentIndex = 0;
   contentDialogImage();
 }
-
+// vorheriges Bild, arbeitet +ber current Index
 function goBack() {
   currentIndex--;
   if (currentIndex < 0) currentIndex = festivalImages.length - 1;
