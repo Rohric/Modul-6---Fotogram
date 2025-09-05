@@ -38,7 +38,7 @@ function init() {
 }
 
 // Templates..dienen dazu den inhalt aus dem Array anzuzeigen
-
+// Gallery ansicht
 function getAllFestivalImages() {
   let festivalImage = "";
   for (let i = 0; i < festivalImages.length; i++) {
@@ -49,12 +49,23 @@ function getAllFestivalImages() {
   }
   document.getElementById("content").innerHTML = festivalImage;
 }
+// Dialog Ansicht
+function contentDialogImage() {
+  const path = festivalImages[currentIndex];
+  const title = path.split("/").pop().split(".")[0];
+
+  dialogImgRef.src = path;
+  document.getElementById("dialogTitle").textContent = title;
+  document.getElementById("description").textContent =
+    festivalImageDesc[currentIndex];
+  document.getElementById("dialogImageNumber").innerHTML =
+    currentIndex + 1 + "von" + festivalImages.length; // mit innerHTML verändern wir den HTML Bereich, (currentIndex + 1 +) zieht sich den aktuellen index und rechnet plus 1 wegen der 0 (+ festivalImages.length) gibt die anzahl der gesamten arrays wieder. durch das(von) in der Mitte wird die Rechnung unterbrochen.
+}
 
 // Dialog
 
-function openDialog(i) {
-  currentIndex = i;           
-  contentDialogImage();           
+function openDialog() {
+  contentDialogImage();
   dialogRef.showModal();
   dialogRef.classList.add("opened");
 }
@@ -67,23 +78,11 @@ function closeDialog() {
 function goForward() {
   currentIndex++;
   if (currentIndex >= festivalImages.length) currentIndex = 0;
-  contentDialogImage();     
+  contentDialogImage();
 }
 
 function goBack() {
   currentIndex--;
   if (currentIndex < 0) currentIndex = festivalImages.length - 1;
-  contentDialogImage();           
-}
-
-
-function contentDialogImage() {
-  const path  = festivalImages[currentIndex];
-  const title = path.split("/").pop().split(".")[0];
-
-  dialogImgRef.src = path;
-  document.getElementById("dialogTitle").textContent = title;
-  document.getElementById("description").textContent = festivalImageDesc[currentIndex];
-
-  document.getElementById('dialogImageNumber').innerHTML = currentIndex +1 + "von" + festivalImages.length
+  contentDialogImage();
 }
