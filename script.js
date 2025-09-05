@@ -54,7 +54,7 @@ function getAllFestivalImages() {
 
 function openDialog(i) {
   currentIndex = i;           
-  updateDialogImage();           
+  contentDialogImage();           
   dialogRef.showModal();
   dialogRef.classList.add("opened");
 }
@@ -67,21 +67,23 @@ function closeDialog() {
 function goForward() {
   currentIndex++;
   if (currentIndex >= festivalImages.length) currentIndex = 0;
-  updateDialogImage();     
+  contentDialogImage();     
 }
 
 function goBack() {
   currentIndex--;
   if (currentIndex < 0) currentIndex = festivalImages.length - 1;
-  updateDialogImage();           
+  contentDialogImage();           
 }
 
 
-function updateDialogImage() {
+function contentDialogImage() {
   const path  = festivalImages[currentIndex];
   const title = path.split("/").pop().split(".")[0];
+
   dialogImgRef.src = path;
   document.getElementById("dialogTitle").textContent = title;
   document.getElementById("description").textContent = festivalImageDesc[currentIndex];
-}
 
+  document.getElementById('dialogImageNumber').innerHTML = currentIndex +1 + "von" + festivalImages.length
+}
