@@ -42,14 +42,16 @@ function init() {
 
 // Template: Gallery ansicht
 function getAllFestivalImages() {
-  let festivalImage = "";
   for (let i = 0; i < festivalImages.length; i++) {
-    festivalImage += `
-    <div class="image-box" onclick="openDialog(${i})">
-      <img src="${festivalImages[i]}" alt="">
-    </div>`;
+    festivalImage += getFestivalImages(i)
   }
   document.getElementById("content").innerHTML = festivalImage;
+}
+
+function getFestivalImages(i) {
+  return     `<div class="image-box" onclick="openDialog(${i})">
+  <img src="${festivalImages[i]}" alt="">
+</div>`;
 }
 
 
