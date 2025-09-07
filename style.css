@@ -85,15 +85,7 @@ h2 {
     cursor: pointer;
 }
 
-
-/* css vom Dialog */
-
-.dialog_1 img {
-    width: 400px;
-    height: auto;
-}
-
-footer {
+.gallery_footer {
     background-color: #000E79;
     margin-top: 64px;
     display: flex;
@@ -102,7 +94,15 @@ footer {
     padding: 0px;
 }
 
-.footer_logo {
+.gallery_footer_logo {
     width: 220px;
     height: 120px;
+}  
+
+/* -------  css vom Dialog -------  */
+
+.dialog_1 img {
+    width: 400px;
+    height: auto;
 }
+

@@ -33,12 +33,13 @@ function init() {
   // Bilder anzeigen
   getAllFestivalImages();
 
-  // Referenzen holen
+  // Referenzen holen, damit man weiß wo welches Bild ist
   dialogRef = document.getElementById("dialog1");
   dialogImgRef = document.getElementById("dialog_image");
 }
 
 // Templates..dienen dazu den inhalt aus dem Array anzuzeigen
+
 // Template: Gallery ansicht
 function getAllFestivalImages() {
   let festivalImage = "";
@@ -50,6 +51,8 @@ function getAllFestivalImages() {
   }
   document.getElementById("content").innerHTML = festivalImage;
 }
+
+
 // Template: Dialog Ansicht
 function contentDialogImage() {
   // erstelle die Variable "PFAD" dient dazu den "currentIndex" zu definieren und um auf ihn zuzugreifen, wie in titel oder bild generierung. 
@@ -58,7 +61,6 @@ function contentDialogImage() {
   const title = path.split("/").pop().split(".")[0];
 // Zieht sich das aktuelle Bild
   dialogImgRef.src = path;
-
   // Dialolg Titel wird gerendert.
   document.getElementById("dialogTitle").textContent = title;
   // Dialog Beschreibung wird gerendert.
@@ -78,12 +80,10 @@ function openDialog(i) {
   contentDialogImage();
   // showModal öffnet das dialog fenster.
   dialogRef.showModal();
-  dialogRef.classList.add("opened");
 }
 // schließt den Dialog, momentan nur auf Button
 function closeDialog() {
   dialogRef.close();
-  dialogRef.classList.remove("opened");
 }
 // nächstes Bild, arbeitet über current Index
 function goForward() {
@@ -91,7 +91,7 @@ function goForward() {
   if (currentIndex >= festivalImages.length) currentIndex = 0;
   contentDialogImage();
 }
-// vorheriges Bild, arbeitet +ber current Index
+// vorheriges Bild, arbeitet über current Index
 function goBack() {
   currentIndex--;
   if (currentIndex < 0) currentIndex = festivalImages.length - 1;
