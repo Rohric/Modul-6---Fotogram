@@ -38,37 +38,38 @@ function init() {
   dialogImgRef = document.getElementById("dialog_image");
 }
 
+// Funcion um die Bilder anzeigen zu lassen.
+function getAllFestivalImages() {
+  for (let i = 0; i < festivalImages.length; i++) {
+    festivalImage += getFestivalImages(i);
+  }
+  document.getElementById("festivalGallery").innerHTML = festivalImage;
+}
 // Templates..dienen dazu den inhalt aus dem Array anzuzeigen
 
 // Template: Gallery ansicht
-function getAllFestivalImages() {
-  for (let i = 0; i < festivalImages.length; i++) {
-    festivalImage += getFestivalImages(i)
-  }
-  document.getElementById("content").innerHTML = festivalImage;
-}
-
 function getFestivalImages(i) {
-  return     `<div class="image-box" onclick="openDialog(${i})">
-  <img src="${festivalImages[i]}" alt="">
-</div>`;
+  return `<div class="image-box" onclick="openDialog(${i})">
+          <img src="${festivalImages[i]}" alt="">
+          </div>`;
 }
 
+// ------------------ DIALOG ------------------
 
 // Template: Dialog Ansicht
 function contentDialogImage() {
-  // erstelle die Variable "PFAD" dient dazu den "currentIndex" zu definieren und um auf ihn zuzugreifen, wie in titel oder bild generierung. 
+  // erstelle die Variable "PFAD" dient dazu den "currentIndex" zu definieren und um auf ihn zuzugreifen, wie in titel oder bild generierung.
   const path = festivalImages[currentIndex];
-// Zieht sich den aktuellen Titel
+  // Zieht sich den aktuellen Titel
   const title = path.split("/").pop().split(".")[0];
-// Zieht sich das aktuelle Bild
+  // Zieht sich das aktuelle Bild
   dialogImgRef.src = path;
   // Dialolg Titel wird gerendert.
   document.getElementById("dialogTitle").textContent = title;
   // Dialog Beschreibung wird gerendert.
   document.getElementById("description").textContent =
     festivalImageDesc[currentIndex];
-    //DIalog Bild von Anzahl wird gerendert.
+  //DIalog Bild von Anzahl wird gerendert.
   document.getElementById("dialogImageNumber").innerHTML =
     currentIndex + 1 + "von" + festivalImages.length; // mit innerHTML verändern wir den HTML Bereich, (currentIndex + 1 +) zieht sich den aktuellen index und rechnet plus 1 wegen der 0 (+ festivalImages.length) gibt die anzahl der gesamten arrays wieder. durch das(von) in der Mitte wird die Rechnung unterbrochen.
 }
