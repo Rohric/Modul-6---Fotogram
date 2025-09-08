@@ -1,0 +1,32 @@
+/* Media */
+@media (max-width: 600px) {
+
+    .header_gallery {
+        display: flex;
+        align-items: center;
+        background-color: var(--background-color-2);
+        color: var(--text-big);
+        padding: 16px;
+        font-size: 36px;
+        gap: 16px;
+    }
+    
+    h2 {
+        margin: 30px 20px 30px 40px;
+        font-size: 36px;
+
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 0px;
+    }
+
+}

@@ -1,0 +1,89 @@
+/* ------- Header styling ------- */
+.header_gallery {
+    display: flex;
+    align-items: center;
+    background-color: var(--background-color-2);
+    color: var(--text-big);
+    padding: 16px;
+    font-size: 36px;
+    gap: 16px;
+}
+
+    /* Titel */
+    h1 {
+        margin: 0;
+    }
+
+    /* Logo */
+    img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+    }
+/* ------- Gallery styling ------- */
+
+.main_content {
+    text-align: center;
+    align-items: center;
+    margin: auto;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top:0px;
+}
+
+
+/* Styling der Boxen, die die Bilder beinhalten */
+.image-box {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border: 2px solid var(--border-color);
+    border-radius: 25%;
+    transition: transform 1s;
+}
+
+/* Styling der Bilder innerhalb der Box */
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s;
+}
+
+/* ------- Footer styling ------- */
+
+
+.gallery_footer {
+    background-color: var(--background-color-2);
+    color: var(--text-big);
+    font-size: 32px;
+    text-align: center;
+    padding: 32px;
+    margin: 8 0 0 0 ;   
+}
+
+.gallery_footer_logo {
+    width: 220px;
+    height: 120px;
+}
+
+/* Hover Effekt */
+
+.image-box:hover {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border: 2px solid var(--border-highligt);
+    border-radius: 20%;
+}
+
+.image-box img:hover {
+    transform: scale(1.5);
+    cursor: pointer;
+}

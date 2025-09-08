@@ -7,6 +7,8 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="assets/dialog.css">
+    <link rel="stylesheet" href="assets/style600px.css">
+    <link rel="stylesheet" href="assets/gallery.css">
     <link rel="shortcut icon" href="assets/icon/favicon.png" type="image/x-icon">
 
 
@@ -34,26 +36,26 @@
     </footer>
 
 <!-- Dialog -->
-
-    <dialog id="dialog1" class="dialog_1" >
+<dialog id="dialog1" class="dialog_1" >
    
-            <header>
-                <h2 id="dialogTitle">Mein Dialog</h2>
-            </header>
-    
-            <section>
-                <img id="dialog_image" class="dialog_image" src="" alt="Vorschau">
-                <p id="description">Beschreibung</p>
-              </section>
-              
-    
-            <footer class="dialog_footer">
-                <button class="button_close" onclick="closeDialog()">Schließen</button>
-                <button class="buttons" onclick="goBack()">zurück</button>
-                <p id="dialogImageNumber"> bild x von x</p>
-                <button class="buttons" onclick="goForward()">vorwärts</button>
-            </footer>       
-    </dialog>
+    <header>
+        <h2 id="dialogTitle">Mein Dialog</h2>
+    </header>
+
+    <section>
+        <img id="dialog_image" class="dialog_image" src="" alt="Vorschau">
+        <p id="description">Beschreibung</p>
+      </section>
+      
+
+    <footer class="dialog_footer">
+        <button class="button_close" onclick="closeDialog()">Schließen</button>
+        <button class="buttons" onclick="goBack()">zurück</button>
+        <p id="dialogImageNumber"> bild x von x</p>
+        <button class="buttons" onclick="goForward()">vorwärts</button>
+    </footer>       
+</dialog>
+
 
 
 </body>
