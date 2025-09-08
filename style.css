@@ -3,32 +3,32 @@
 @font-face {
     font-family: "Roboto";
     src: url("assets/fonts/roboto/Roboto-VariableFont_wdth,wght.ttf") format("truetype");
-    font-weight: 100 900;  /* deckt alle Gewichte ab */
+    font-weight: 100 900;
     font-style: normal;
-  }
+}
 
-  :root {
+:root {
     /* Hintergrundfarben */
-    --backgroun-color: #FFF3E0;       /* Body: leichtes Creme mit warmem Unterton */
-    --background-color-2: #4A2A14;    /* Header/Footer: sattes warmes Braun */
-    --dialog-bg: #FFE7D1;             /* Dialog-Hintergrund: helles Apricot */
-  
+    --backgroun-color: #FFF3E0;
+    --background-color-2: #4A2A14;
+    --dialog-bg: #FFE7D1;
+
     /* Textfarben */
-    --gallery-text: #7A2E0E;          /* Standardtext: dunkles Orange-Braun */
-    --text-big: #FF7A1C;              /* Große Headlines: lebendiges Orange */
-  
+    --gallery-text: #7A2E0E;
+    --text-big: #FF7A1C;
+
     /* Rahmen & Akzente */
-    --border-color: #FFB783;          /* Kartenrahmen: softes Apricot */
-    --border-highligt: #FF6600;       /* Hover-Rahmen: kräftiges Orange */
-  
+    --border-color: #FFB783;
+    --border-highligt: #FF6600;
+
     /* Buttons */
-    --button-bg: #FF7A1C;             /* Button-Hintergrund Standard */
-    --button-text: #FFFFFF;           /* Button-Text */
-    --button-hover: #FF5500;          /* Hover-Farbe: intensiver Orange-Rot */
-    --button-close: #CC3300;          /* Schließen-Button: dunkleres Rot-Orange */
-    --button-close-hover: #AA2200;    /* Schließen-Button Hover: noch dunkler */
-  }
-  
+    --button-bg: #FF7A1C;
+    --button-text: #FFFFFF;
+    --button-hover: #FF5500;
+    --button-close: #CC3300;
+    --button-close-hover: #AA2200;
+}
+
 
 
 
@@ -36,7 +36,7 @@ body {
     background-color: var(--backgroun-color);
     margin: 0;
     color: var(--gallery-text);
-     font-family: "Roboto";
+    font-family: "Roboto";
 }
 
 h2 {
@@ -51,19 +51,19 @@ button {
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.2s;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: var(--button-hover);
-  }
-  
-  .button_close {
+}
+
+.button_close {
     background-color: var(--button-close);
-  }
-  
-  .button_close:hover {
+}
+
+.button_close:hover {
     background-color: var(--button-close-hover);
-  }
+}
 
 
 /* ------- Header styling ------- */
@@ -153,6 +153,3 @@ button {
     transform: scale(1.5);
     cursor: pointer;
 }
-
-
-
