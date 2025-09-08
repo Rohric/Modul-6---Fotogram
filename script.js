@@ -1,37 +1,22 @@
 let festivalImages = [
-"assets/image/Ahoi Brause.jpg",
-"assets/image/Beer Jesus.jpg",
-"assets/image/beerPapst.jpg",
-"assets/image/Bier Garten.jpg",
-"assets/image/BlaueBühne.jpg",
-"assets/image/Bärtchen.jpg",
-"assets/image/Cheealeader.jpg",
-"assets/image/Der Turm.jpg",
-"assets/image/Die Mannschaft.jpg",
-"assets/image/Edward40Hands.jpg",
-"assets/image/Festival Hund.jpg",
-"assets/image/FestivalEingang.jpg",
-"assets/image/FestivalPflanze.jpg",
-"assets/image/Gang01.jpg",
-"assets/image/Gang02.jpg",
-"assets/image/GangAss.jpg",
-"assets/image/GutenMorgen.jpg",
-"assets/image/heimfahrt.jpg",
-"assets/image/Herr Tittler.jpg",
-"assets/image/Holzfäller.jpg",
-"assets/image/immernoch hier.jpg",
-"assets/image/Mittagessen.jpg",
-"assets/image/No Shit.jpg",
-"assets/image/Riesenrad.jpg",
-"assets/image/RIP.jpg",
-"assets/image/Schönes Bild.jpg",
-"assets/image/Sieht gut aus.jpg",
-"assets/image/Sonnen Segel.jpg",
-"assets/image/Southside.jpg",
-"assets/image/was mache ich hier.jpg",
-"assets/image/Wer ist das links.jpg",
-"assets/image/wir sind angekommen.jpg",
-"assets/image/Wir sind hier.jpg",
+  "assets/image/Ahoi Brause.jpg",
+  "assets/image/Beer Jesus.jpg",
+  "assets/image/beerPapst.jpg",
+  "assets/image/Bier Garten.jpg",
+  "assets/image/Bärtchen.jpg",
+  "assets/image/Cheealeader.jpg",
+  "assets/image/Die Mannschaft.jpg",
+  "assets/image/Edward40Hands.jpg",
+  "assets/image/Festival Hund.jpg",
+  "assets/image/FestivalEingang.jpg",
+  "assets/image/heimfahrt.jpg",
+  "assets/image/Herr Tittler.jpg",
+  "assets/image/Mittagessen.jpg",
+  "assets/image/No Shit.jpg",
+  "assets/image/RIP.jpg",
+  "assets/image/Schönes Bild.jpg",
+  "assets/image/Sieht gut aus.jpg",
+  "assets/image/was mache ich hier.jpg",
 ];
 
 let festivalImageDesc = [
@@ -39,36 +24,21 @@ let festivalImageDesc = [
   "Jesus Beer Christ",
   "Die treuen Gefolgen vom BEERPAPST",
   "Tag 1",
-  "SouthSide Blaue Bühne",
   "Das Abbild eines Adones mit dem passenden Schnurbart..und ein komischer Kerl links",
   "Das GruppenBild war verdammt anstrengend",
-  "Solche Türmen sind ständig passiert, Technik machts!",
   "Rocco 2024",
   "Eine Tradition das die Jungs Edward40Hands spielen müssen",
   "immer ist dieser Hund dabei...",
   "FestivalEingang vom SouthSide",
-  "NatuschutzGebiet",
   "V.I.P",
-  "NinaChuba <3",
-  "Festival Aufsicht",
-  "Jenga Festival Edition",
   "Moritz ist endlich mal ruhig..",
   "Darf ich vorstellen Herr tittler",
-  "Der beste Spot für den Donnerbalken",
-  "Franz und ich auf Tour",
   "Frühstück",
   "Ist nicht dein Ernst?!",
-  "Das andere Bild ist besser!",
   "R.I.P. Rocco del Schlacko",
   "Riesenrad, ich war da oben",
-  "Klnnte auch Tag 1 sein",
-  "Das war definitiv Tag 2 2023!",
-  "Es war fast ein gutes Bild haha",
+  "Könnte auch Tag 1 sein",
   "Das war ein schwacher Moment..ich bin mir ziemlich sicher davor gab es Korn Eistee",
-  "Keine Ahnung wer das da Links ist. :D",
-  "Eric und ich auf unserem ersten SouthSide, erstmal Lage checken.",
-  "Die Sonne machte alle kaputt!",
-
 ];
 
 let festivalImage = "";
@@ -86,7 +56,7 @@ function init() {
 
   // Eventbubbeling. hier sogre ich dafür das der Listener nur außerhalb vom dialog zählt.
   dialogRef.addEventListener("click", (e) => {
-    e.preventDefault();// mit esc schließen
+    e.preventDefault(); // mit esc schließen
     // Prüfen: wurde auf das Dialog-Element selbst geklickt?
     if (e.target === dialogRef) {
       closeDialog();
@@ -94,32 +64,28 @@ function init() {
   });
 
   //tabindex im Dialog
-dialogRef.addEventListener("keydown", (e) => {
-  if (e.key === "Tab") {
-    const focusable = dialogRef.querySelectorAll("button");
-    const first = focusable[0];                   // Schließen
-    const last  = focusable[focusable.length-1];  // Weiter
+  dialogRef.addEventListener("keydown", (e) => {
+    if (e.key === "Tab") {
+      const focusable = dialogRef.querySelectorAll("button");
+      const first = focusable[0]; // Schließen
+      const last = focusable[focusable.length - 1]; // Weiter
 
-    if (e.shiftKey) {
-      // Rückwärts mit Shift+Tab
-      if (document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-      }
-    } else {
-      // Vorwärts mit Tab
-      if (document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
+      if (e.shiftKey) {
+        // Rückwärts mit Shift+Tab
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        // Vorwärts mit Tab
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
       }
     }
-  }
-});
-
+  });
 }
-
-
-
 
 // Funcion um die Bilder anzeigen zu lassen.
 function getAllFestivalImages() {
@@ -145,7 +111,6 @@ function handleKey(event, i) {
     event.preventDefault(); // verhindert Scrollen bei Space
   }
 }
-
 
 // ------------------ DIALOG ------------------
 
@@ -193,6 +158,3 @@ function goBack() {
   if (currentIndex < 0) currentIndex = festivalImages.length - 1;
   contentDialogImage();
 }
-
-
-

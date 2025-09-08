@@ -13,13 +13,12 @@
   } */
 
 .dialog_image {
-    max-width: 700px;
-    max-height: 500px;
+    max-width: 500px;
+    max-height: 400px;
     object-fit: contain;
 }
 
 dialog.dialog_1 {
-    /* Grundstil – KEIN display/block/visibility hier! */
     border: none;
     padding: 0;
 }
@@ -31,7 +30,7 @@ dialog.dialog_1[open] {
     /* transition: opacity 200ms ease, transform 200ms ease; */
     width: 800px;
     height: 700px;
-    background: var(--backgroun-color);
+    background: var(--background-color);
     color: var(--gallery-text);
     display: flex;
     align-items: center;
