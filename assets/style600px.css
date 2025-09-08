@@ -29,4 +29,58 @@
         margin-top: 0px;
     }
 
+/* Dialog */
+    .dialog_image {
+        max-width: 300px;
+        max-height: 250px;
+        object-fit: contain;
+    }
+    
+    dialog.dialog_1 {
+        border: none;
+        padding: 0;
+    }
+    
+    dialog.dialog_1[open] {
+        /* Sichtbarer Zustand (hier darfst du animieren/positionieren) */
+        opacity: 1;
+        /* transform: scale(1); */
+        /* transition: opacity 200ms ease, transform 200ms ease; */
+        width: 500px;
+        height: 500px;
+        background: var(--background-color);
+        color: var(--gallery-text);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        overflow: hidden;
+        flex-direction: column;
+        border: 2px solid black;
+        border-radius: 0%;
+        text-align: center;
+    
+        .dialog_footer {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+    
+        }
+    }
+
+    .button_close {
+        background-color: var(--button-close);
+        font-size: 12px;
+    }
+    button {
+        background-color: var(--button-bg);
+        color: var(--button-text);
+        border: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        font-size: 12px;
+    }
+    
 }
