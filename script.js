@@ -36,6 +36,16 @@ function init() {
   // Referenzen holen, damit man weiß wo welches Bild ist
   dialogRef = document.getElementById("dialog1");
   dialogImgRef = document.getElementById("dialog_image");
+
+  // Eventbubbeling. hier sogre ich dafür das der Listener nur außerhalb vom dialog zählt.
+  dialogRef.addEventListener("click", (e) => {
+    e.preventDefault();// mit esc schließen
+    // Prüfen: wurde auf das Dialog-Element selbst geklickt?
+    if (e.target === dialogRef) {
+      closeDialog();
+    }
+  });
+  
 }
 
 // Funcion um die Bilder anzeigen zu lassen.
@@ -100,3 +110,4 @@ function goBack() {
   if (currentIndex < 0) currentIndex = festivalImages.length - 1;
   contentDialogImage();
 }
+
