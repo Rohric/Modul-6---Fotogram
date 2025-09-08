@@ -92,8 +92,34 @@ function init() {
       closeDialog();
     }
   });
-  
+
+  //tabindex im Dialog
+dialogRef.addEventListener("keydown", (e) => {
+  if (e.key === "Tab") {
+    const focusable = dialogRef.querySelectorAll("button");
+    const first = focusable[0];                   // Schließen
+    const last  = focusable[focusable.length-1];  // Weiter
+
+    if (e.shiftKey) {
+      // Rückwärts mit Shift+Tab
+      if (document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else {
+      // Vorwärts mit Tab
+      if (document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  }
+});
+
 }
+
+
+
 
 // Funcion um die Bilder anzeigen zu lassen.
 function getAllFestivalImages() {
@@ -106,10 +132,20 @@ function getAllFestivalImages() {
 
 // Template: Gallery ansicht
 function getFestivalImages(i) {
-  return `<div class="image-box" onclick="openDialog(${i})">
-          <img src="${festivalImages[i]}" alt="">
+  return `<div tabindex="0" class="image-box"
+              onclick="openDialog(${i})"
+              onkeydown="handleKey(event, ${i})">
+            <img src="${festivalImages[i]}" alt="">
           </div>`;
 }
+
+function handleKey(event, i) {
+  if (event.key === "Enter" || event.key === " ") {
+    openDialog(i);
+    event.preventDefault(); // verhindert Scrollen bei Space
+  }
+}
+
 
 // ------------------ DIALOG ------------------
 
@@ -157,4 +193,6 @@ function goBack() {
   if (currentIndex < 0) currentIndex = festivalImages.length - 1;
   contentDialogImage();
 }
+
+
 

@@ -6,6 +6,8 @@
     <title>Fotogram</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/dialog.css">
+    <link rel="shortcut icon" href="assets/icon/favicon.png" type="image/x-icon">
 
 
     <script src="script.js" defer></script>
@@ -17,7 +19,7 @@
     <!-- Header  -->
 
     <header class="header_gallery">
-        <img class="header_logo" src="assets/icon/favicon.png" alt="">
+        <img class="header_logo" src="assets/icon/favicon.png" alt="Color Splash">
         <h1>Fotogram</h1>
     </header>
     
@@ -28,7 +30,7 @@
     </main>
 
     <footer class="gallery_footer">
-       <span>Fotogram by Emil Marsal</span>
+       <small><em>Fotogram by Emil Marsal</em></small>
     </footer>
 
 <!-- Dialog -->
@@ -46,11 +48,11 @@
               
     
             <footer class="dialog_footer">
-                <button class="buttons" onclick="closeDialog()">Schließen</button>
+                <button class="button_close" onclick="closeDialog()">Schließen</button>
                 <button class="buttons" onclick="goBack()">zurück</button>
                 <p id="dialogImageNumber"> bild x von x</p>
                 <button class="buttons" onclick="goForward()">vorwärts</button>
-            </footer>
+            </footer>       
     </dialog>
 
 

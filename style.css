@@ -1,13 +1,34 @@
 /* Global */
 
-:root {
-    --backgroun-color: #FFF3E9;
-    --background-color-2: #3B2417;
-    --border-color: #FFB17A;
-    --border-highligt: #FF7A00;
-    --gallery-text: #973d0c;
-    --text-big: #fc8d24;
-}
+@font-face {
+    font-family: "Roboto";
+    src: url("assets/fonts/roboto/Roboto-VariableFont_wdth,wght.ttf") format("truetype");
+    font-weight: 100 900;  /* deckt alle Gewichte ab */
+    font-style: normal;
+  }
+
+  :root {
+    /* Hintergrundfarben */
+    --backgroun-color: #FFF3E0;       /* Body: leichtes Creme mit warmem Unterton */
+    --background-color-2: #4A2A14;    /* Header/Footer: sattes warmes Braun */
+    --dialog-bg: #FFE7D1;             /* Dialog-Hintergrund: helles Apricot */
+  
+    /* Textfarben */
+    --gallery-text: #7A2E0E;          /* Standardtext: dunkles Orange-Braun */
+    --text-big: #FF7A1C;              /* Große Headlines: lebendiges Orange */
+  
+    /* Rahmen & Akzente */
+    --border-color: #FFB783;          /* Kartenrahmen: softes Apricot */
+    --border-highligt: #FF6600;       /* Hover-Rahmen: kräftiges Orange */
+  
+    /* Buttons */
+    --button-bg: #FF7A1C;             /* Button-Hintergrund Standard */
+    --button-text: #FFFFFF;           /* Button-Text */
+    --button-hover: #FF5500;          /* Hover-Farbe: intensiver Orange-Rot */
+    --button-close: #CC3300;          /* Schließen-Button: dunkleres Rot-Orange */
+    --button-close-hover: #AA2200;    /* Schließen-Button Hover: noch dunkler */
+  }
+  
 
 
 
@@ -15,13 +36,37 @@ body {
     background-color: var(--backgroun-color);
     margin: 0;
     color: var(--gallery-text);
+     font-family: "Roboto";
 }
 
 h2 {
     margin: 30px 20px 30px 40px;
 }
 
-/* Header */
+button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  button:hover {
+    background-color: var(--button-hover);
+  }
+  
+  .button_close {
+    background-color: var(--button-close);
+  }
+  
+  .button_close:hover {
+    background-color: var(--button-close-hover);
+  }
+
+
+/* ------- Header styling ------- */
 .header_gallery {
     display: flex;
     align-items: center;
@@ -29,7 +74,7 @@ h2 {
     color: var(--text-big);
     padding: 16px;
     font-size: 36px;
-    gap: 8px;
+    gap: 16px;
 
     /* Titel */
     h1 {
@@ -111,69 +156,3 @@ h2 {
 
 
 
-/* -------  css vom Dialog -------  */
-/* .dialog_1 {
-    width: 600px;
-    height: 500px;
-    background: #000;
-    color: var(--gallery-text);        
-    display: flex;           
-    align-items: center;
-    justify-content: center;
-    overflow: hidden; 
-    flex-direction: column;       
-  } */
-  
-  .dialog_image {
-    max-width: 400px;
-    max-height: 300px;
-    object-fit: contain;
-  }
-  
-  dialog.dialog_1 { 
-    /* Grundstil – KEIN display/block/visibility hier! */
-    border: none;
-    padding: 0;
-  }
-  
-  dialog.dialog_1[open] {
-    /* Sichtbarer Zustand (hier darfst du animieren/positionieren) */
-    opacity: 1;
-    /* transform: scale(1); */
-    /* transition: opacity 200ms ease, transform 200ms ease; */
-    width: 600px;
-    height: 500px;
-    background:var(--backgroun-color);
-    color: var(--gallery-text);        
-    display: flex;           
-    align-items: center;
-    justify-content: space-between;
-    overflow: hidden; 
-    flex-direction: column;   
-    border: 2px solid black;
-    border-radius: 25%;
-text-align: center;
-.dialog_footer{
-display: flex;
-align-items: center;
-gap: 32px;
-
-}
-  }
-  
-  /* Für sanftes Einblenden: Ausgangszustand */
-  dialog.dialog_1 {
-    opacity: 0;
-    transform: scale(.96);
-  }
-  
-  dialog.dialog_1::backdrop {
-    background:  rgba(255, 177, 122, 0.253);
-  }
-  
-
-  .buttons{
-    border-radius: 35%;
-    background-color: var(--border-highligt);
-    color: var(--backgroun-color);
-  }
