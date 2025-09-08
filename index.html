@@ -18,7 +18,6 @@
 
     <header class="header_gallery">
         <img class="header_logo" src="assets/icon/favicon.png" alt="">
-    
         <h1>Fotogram</h1>
     </header>
     
@@ -29,51 +28,34 @@
     </main>
 
     <footer class="gallery_footer">
-        <div>
-        <img class="gallery_footer_logo" src="assets/icon/footer-logo.png" alt="">
-        </div>
+       <span>Fotogram by Emil Marsal</span>
     </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- Dialog -->
 
-    <dialog id="dialog1" class="dialog_1">
-        <header>
-            <h2 id="dialogTitle">Mein Dialog</h2>
-        </header>
-
-        <section>
-            <img id="dialog_image" class="dialog_image" src="" alt="Vorschau">
-            <p id="description">Beschreibung</p>
-          </section>
-          
-
-        <footer>
-            <button aria-label="Dialog close" onclick="closeDialog()">Schließen</button>
-            <button onclick="goBack()">zurück</button>
-            <p id="dialogImageNumber"> bild x von x</p>
-            <button onclick="goForward()">vorwärts</button>
-        </footer>
+    <dialog id="dialog1" class="dialog_1" >
+   
+            <header>
+                <h2 id="dialogTitle">Mein Dialog</h2>
+            </header>
+    
+            <section>
+                <img id="dialog_image" class="dialog_image" src="" alt="Vorschau">
+                <p id="description">Beschreibung</p>
+              </section>
+              
+    
+            <footer class="dialog_footer">
+                <button class="buttons" onclick="closeDialog()">Schließen</button>
+                <button class="buttons" onclick="goBack()">zurück</button>
+                <p id="dialogImageNumber"> bild x von x</p>
+                <button class="buttons" onclick="goForward()">vorwärts</button>
+            </footer>
     </dialog>
 
 
 </body>
 </html>
-
 
 
     

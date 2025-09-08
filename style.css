@@ -1,48 +1,55 @@
 /* Global */
 
-
-body {
-    background-color: #00CAFF;
-    margin: 0;
-    color: white;
+:root {
+    --backgroun-color: #FFF3E9;
+    --background-color-2: #3B2417;
+    --border-color: #FFB17A;
+    --border-highligt: #FF7A00;
+    --gallery-text: #973d0c;
+    --text-big: #fc8d24;
 }
 
-.main_content {
-    text-align: center;
+
+
+body {
+    background-color: var(--backgroun-color);
+    margin: 0;
+    color: var(--gallery-text);
+}
+
+h2 {
+    margin: 30px 20px 30px 40px;
 }
 
 /* Header */
 .header_gallery {
     display: flex;
     align-items: center;
-    background-color: #000E79;
+    background-color: var(--background-color-2);
+    color: var(--text-big);
     padding: 16px;
     font-size: 36px;
     gap: 8px;
+
+    /* Titel */
+    h1 {
+        margin: 0;
+    }
+
+    /* Logo */
+    img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+    }
 }
-
-/* Logo */
-.header_logo {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-}
-
-/* Titel */
-
-
-.header_gallery h1 {
-    margin: 0;
-}
-
-h2 {
-    margin: 30px 20px 30px 40px;
-
-}
-
-
 
 /* ------- Gallery styling ------- */
+
+.main_content {
+    text-align: center;
+}
+
 .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -50,12 +57,13 @@ h2 {
     gap: 16px;
 }
 
+
 /* Styling der Boxen, die die Bilder beinhalten */
 .image-box {
     width: 150px;
     height: 150px;
     overflow: hidden;
-    border: 2px solid #000000;
+    border: 2px solid var(--border-color);
     border-radius: 25%;
     transition: transform 1s;
 }
@@ -69,6 +77,22 @@ h2 {
     transition: transform 0.5s;
 }
 
+/* ------- Footer styling ------- */
+
+
+.gallery_footer {
+    background-color: var(--background-color-2);
+    color: var(--text-big);
+    font-size: 32px;
+    text-align: center;
+    padding: 32px;
+    margin-top: 8px;
+}
+
+.gallery_footer_logo {
+    width: 220px;
+    height: 120px;
+}
 
 /* Hover Effekt */
 
@@ -76,7 +100,7 @@ h2 {
     width: 150px;
     height: 150px;
     overflow: hidden;
-    border: 2px solid #00F3FF;
+    border: 2px solid var(--border-highligt);
     border-radius: 20%;
 }
 
@@ -85,24 +109,71 @@ h2 {
     cursor: pointer;
 }
 
-.gallery_footer {
-    background-color: #000E79;
-    margin-top: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0px;
-}
 
-.gallery_footer_logo {
-    width: 220px;
-    height: 120px;
-}  
 
 /* -------  css vom Dialog -------  */
+/* .dialog_1 {
+    width: 600px;
+    height: 500px;
+    background: #000;
+    color: var(--gallery-text);        
+    display: flex;           
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; 
+    flex-direction: column;       
+  } */
+  
+  .dialog_image {
+    max-width: 400px;
+    max-height: 300px;
+    object-fit: contain;
+  }
+  
+  dialog.dialog_1 { 
+    /* Grundstil – KEIN display/block/visibility hier! */
+    border: none;
+    padding: 0;
+  }
+  
+  dialog.dialog_1[open] {
+    /* Sichtbarer Zustand (hier darfst du animieren/positionieren) */
+    opacity: 1;
+    /* transform: scale(1); */
+    /* transition: opacity 200ms ease, transform 200ms ease; */
+    width: 600px;
+    height: 500px;
+    background:var(--backgroun-color);
+    color: var(--gallery-text);        
+    display: flex;           
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden; 
+    flex-direction: column;   
+    border: 2px solid black;
+    border-radius: 25%;
+text-align: center;
+.dialog_footer{
+display: flex;
+align-items: center;
+gap: 32px;
 
-.dialog_1 img {
-    width: 400px;
-    height: auto;
 }
+  }
+  
+  /* Für sanftes Einblenden: Ausgangszustand */
+  dialog.dialog_1 {
+    opacity: 0;
+    transform: scale(.96);
+  }
+  
+  dialog.dialog_1::backdrop {
+    background:  rgba(255, 177, 122, 0.253);
+  }
+  
 
+  .buttons{
+    border-radius: 35%;
+    background-color: var(--border-highligt);
+    color: var(--backgroun-color);
+  }
